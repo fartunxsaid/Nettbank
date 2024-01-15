@@ -1,4 +1,4 @@
 <h1> Gruppeoppgave testing av nettbank </h1>
-Gruppemedlemmer
-Fartun Said s374964
-Emelie Minin s374930
+<p>Gruppemedlemmer</p>
+<p>Fartun Said s374964</p>
+<p>Emelie Minin s374930</p>
