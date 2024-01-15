@@ -51,6 +51,7 @@ public class EnhetstestBankController {
 
         // assert
         assertEquals(enKunde, resultat);
+
     }
 
     @Test
