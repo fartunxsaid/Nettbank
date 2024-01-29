@@ -38,7 +38,7 @@ public class EnhetstestBankController {
     public void hentKundeInfo_loggetInn() {
 
         // arrange
-        Kunde enKunde = new Kunde("01010110523",
+        Kunde enKunde = new Kunde("01010110523", "01010110523",
                 "Lene", "Jensen", "Askerveien 22", "3270",
                 "Asker", "22224444");
 

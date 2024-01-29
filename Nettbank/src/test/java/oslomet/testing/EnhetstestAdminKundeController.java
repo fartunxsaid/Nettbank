@@ -5,10 +5,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import oslomet.testing.API.AdminKundeController;
-import oslomet.testing.API.BankController;
 import oslomet.testing.DAL.AdminRepository;
-import oslomet.testing.DAL.BankRepository;
-import oslomet.testing.Models.Konto;
 import oslomet.testing.Models.Kunde;
 import oslomet.testing.Sikkerhet.Sikkerhet;
 
@@ -38,8 +35,8 @@ public class EnhetstestAdminKundeController {
         // arrange
         List<Kunde> kundeList = new ArrayList<>();
 
-        Kunde kunde1= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
-        Kunde kunde2=new Kunde("12345678901","Per","Hansen","Osloveien 82","1234","12345678","HeiHei");
+        Kunde kunde1= new Kunde("01010110523", "01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
+        Kunde kunde2=new Kunde("01010110523", "12345678901","Per","Hansen","Osloveien 82","1234","12345678","HeiHei");
 
         kundeList.add(kunde1);
         kundeList.add(kunde2);
@@ -64,7 +61,7 @@ public class EnhetstestAdminKundeController {
     @Test
     public void test_LagreOK(){
         // arrange
-        Kunde kunde1= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
+        Kunde kunde1= new Kunde("01010110523", "01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
         when(sjekk.loggetInn()).thenReturn("01010110523");
         when(repository.registrerKunde(kunde1)).thenReturn("OK");
         //act
@@ -75,7 +72,7 @@ public class EnhetstestAdminKundeController {
     @Test
     public void test_LagreIkkeOK(){
         // arrange
-        Kunde kunde1= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
+        Kunde kunde1= new Kunde("01010110523", "01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
         when(sjekk.loggetInn()).thenReturn(null);
         //act
         String resultat = AdminKundeController.lagreKunde(kunde1);
@@ -85,7 +82,7 @@ public class EnhetstestAdminKundeController {
     @Test
     public void test_EndreOK(){
         // arrange
-        Kunde enkunde= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
+        Kunde enkunde= new Kunde("01010110523", "01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
         when(sjekk.loggetInn()).thenReturn("01010110523");
         when(repository.endreKundeInfo(enkunde)).thenReturn("OK");
         //act
@@ -96,7 +93,7 @@ public class EnhetstestAdminKundeController {
     @Test
     public void test_EndreIkkeOK(){
         // arrange
-        Kunde enkunde= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
+        Kunde enkunde= new Kunde("01010110523", "01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
         when(sjekk.loggetInn()).thenReturn(null);
         //act
         String resultat = AdminKundeController.endre(enkunde);
