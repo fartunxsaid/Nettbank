@@ -12,7 +12,7 @@ public class Kunde
     private String passord;
 
     public Kunde(String personnummer, String fornavn, String etternavn, String adresse,
-                 String postnr, String poststed, String telefonnr, String passord) {
+                 String postnr, String poststed, String telefonnr) {
         this.personnummer = personnummer;
         this.fornavn = fornavn;
         this.etternavn = etternavn;

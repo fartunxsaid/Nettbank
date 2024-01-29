@@ -34,6 +34,23 @@ public class EnhetstestAdminKundeController {
     private Sikkerhet sjekk;
 
     @Test
-    public void
+    public void test_HentAlleOk(){
+        // arrange
+        List<Kunde> kundeList = new ArrayList<>();
+
+        Kunde kunde1= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
+        Kunde kunde2=new Kunde("12345678901","Per","Hansen","Osloveien 82","1234","12345678","HeiHei");
+
+        kundeList.add(kunde1);
+        kundeList.add(kunde2);
+
+        when(repository.hentAlleKunder()).thenReturn(kundeList);
+        when(sjekk.loggetInn()).thenReturn("01010110523");
+
+        // act
+        List<Kunde> resultat = AdminKundeController.hentAlle();
+        //assert
+        assertEquals(kundeList, resultat);
+    }
 }
 

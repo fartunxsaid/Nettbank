@@ -40,7 +40,7 @@ public class EnhetstestBankController {
         // arrange
         Kunde enKunde = new Kunde("01010110523",
                 "Lene", "Jensen", "Askerveien 22", "3270",
-                "Asker", "22224444", "HeiHei");
+                "Asker", "22224444");
 
         when(sjekk.loggetInn()).thenReturn("01010110523");
 
