@@ -52,6 +52,7 @@ public class EnhetstestAdminKundeController {
         //assert
         assertEquals(kundeList, resultat);
     }
+    @Test
     public void test_HentAlleIkkeOK(){
         // arrange
         when(sjekk.loggetInn()).thenReturn(null);
