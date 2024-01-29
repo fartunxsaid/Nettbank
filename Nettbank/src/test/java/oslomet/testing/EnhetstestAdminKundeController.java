@@ -87,7 +87,8 @@ public class EnhetstestAdminKundeController {
         // arrange
         Kunde enkunde= new Kunde("01010110523","Lene","Jensen","Askerveien 22","3270","22224444","HeiHei");
         when(sjekk.loggetInn()).thenReturn("01010110523");
-        when(repository.endreKundeInfo(enkunde)).thenReturn("OK");        //act
+        when(repository.endreKundeInfo(enkunde)).thenReturn("OK");
+        //act
         String resultat = AdminKundeController.endre(enkunde);
         //assert
         assertEquals("OK", resultat);
