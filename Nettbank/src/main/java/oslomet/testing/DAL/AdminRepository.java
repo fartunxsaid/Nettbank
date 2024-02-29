@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 import oslomet.testing.Models.Konto;
 import oslomet.testing.Models.Kunde;
 import javax.sql.DataSource;
@@ -172,8 +173,7 @@ public class AdminRepository {
         try{
             Resource skjema = new ClassPathResource("schema.sql");
             Resource data = new ClassPathResource("data.sql");
-            ResourceDatabasePopulator databasePopulator = new
-                    ResourceDatabasePopulator(skjema,data);
+            ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator(skjema,data);
             databasePopulator.execute(dataSource);
             return "OK";
         }
