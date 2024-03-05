@@ -279,6 +279,52 @@ public class EnhetstestBankController {
         // assert
         assertNull(resultat);
     }
+    @Test
+    public void hentTransaksjoner_OK() {
+
+        // arrange
+        List<Transaksjon> transaksjons = new ArrayList<>();
+
+        Transaksjon tr1 = new Transaksjon(2, "123456789101", 23.5,
+                "2012-03-11", "send", "1", "23456789101");
+        Transaksjon tr2 = new Transaksjon(3, "123456789101", 23.5,
+                "2021-04-11", "send", "1", "23456789101");
+
+        transaksjons.add(tr1);
+        transaksjons.add(tr2);
+
+
+        List <Konto> konti = new ArrayList<>();
+        Konto konto1 = new Konto("115111133557", "02020211533",
+                800, "Lønnskonto", "NOK", transaksjons);
+
+        konti.add(konto1);
+
+        konto1.setTransaksjoner(transaksjons);
+
+        when(sjekk.loggetInn()).thenReturn("115111133557");
+
+        when(repository.hentTransaksjoner(anyString(), anyString(), anyString())).thenReturn(konto1);
+
+        // act
+        Konto resultat = bankController.hentTransaksjoner("115111133557","2011-01-01", "2013-01-01");
+
+        // assert
+        assertEquals(konto1, resultat);
+    }
+    @Test
+    public void hentTransaksjoner_ikkeOK() {
+
+        Konto konto1 = new Konto("115111133557", "02020211533",
+                800, "Lønnskonto", "NOK", null);
+
+        when(sjekk.loggetInn()).thenReturn(null);
+
+        // act
+        Konto resultat = bankController.hentTransaksjoner(null,null, null);
+
+        assertNull(resultat);
+    }
 
     @Test
     public void test_initDB(){
