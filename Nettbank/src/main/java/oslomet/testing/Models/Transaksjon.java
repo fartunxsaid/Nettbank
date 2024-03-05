@@ -20,7 +20,7 @@ public class Transaksjon
         this.kontonummer = kontonummer;
     }
 
-    public Transaksjon() {
+    public Transaksjon(int i, String number, double v, String date, String skagen, String id, String s) {
     }
 
     public int getTxID() {

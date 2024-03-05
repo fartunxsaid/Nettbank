@@ -53,11 +53,5 @@ public class AdminKontoController {
         }
         return "Ikke innlogget";
     }
-    @Autowired
-    private DataSource dataSource;
-    @GetMapping("/initDB")
-    public String initDB(){
-        return repository.initDB(dataSource);
-    }
 
 }
